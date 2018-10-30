@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jQuery.ruleSingleSelect.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="dd" class="custom-dropdown-5"> <span>Transport</span>
+			<ul class="dropdown">
+				<li data-id="1">
+					<a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a>
+				</li>
+				<li data-id="2">
+					<a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a>
+				</li>
+				<li data-id="3">
+					<a href="#"><i class="icon-plane icon-large"></i>Private jet</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$('#dd').ruleSingleSelect();
+				$(document).click(function() {
+					$('.wrapper-dropdown-3').removeClass('active');
+				});
+			});
+		</script>
+	</body>
+
+</html>

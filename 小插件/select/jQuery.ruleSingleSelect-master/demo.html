@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIV模拟美化下拉菜单</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Custom <strong>Drop-Down List</strong> Styling</h1>
+  </header>
+  <section class="main">
+    <div class="wrapper-demo">
+      <div id="dd" class="custom-dropdown-5" > <span>Transport</span>
+        <ul class="dropdown">
+          <li data-id="1" ><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
+          <li data-id="2" ><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+          <li data-id="3" ><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+        </ul>
+      </div>
+       <br/><br/><br/><br/><br/><br/><br/><br/>
+      <div id="ddd" class="custom-dropdown-4" > <span>Transport</span>
+        <ul class="dropdown">
+          <li data-id="1" ><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
+          <li data-id="2" ><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+          <li data-id="3" ><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+        </ul>
+      </div>
+       <br/><br/><br/><br/><br/><br/><br/><br/>
+      <div id="ddd" class="custom-dropdown-3" > <span>Transport</span>
+        <ul class="dropdown">
+          <li data-id="1" ><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
+          <li data-id="2" ><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+          <li data-id="3" ><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+        </ul>
+      </div>
+       <br/><br/><br/><br/><br/><br/><br/><br/>
+      <div id="ddd" class="custom-dropdown-2" > <span>Transport</span>
+        <ul class="dropdown">
+          <li data-id="1" ><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
+          <li data-id="2" ><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+          <li data-id="3" ><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+        </ul>
+      </div>
+      <br/><br/><br/><br/><br/><br/><br/><br/>
+      <div id="ddd" class="custom-dropdown-1" > <span>Transport</span>
+        <ul class="dropdown">
+          <li data-id="1" ><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
+          <li data-id="2" ><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+          <li data-id="3" ><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- jQuery if needed --> 
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/jQuery.ruleSingleSelect.js"></script> 
+
+<script type="text/javascript">	
+	$(function() {
+		$('#dd,#ddd').ruleSingleSelect();
+		$(document).click(function() {
+			// all dropdowns
+			$('.wrapper-dropdown-3').removeClass('active');
+		});
+	});
+</script>
+</body>
+</html>

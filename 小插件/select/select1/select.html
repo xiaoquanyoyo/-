@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>自定义select下拉列表样式</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style type="text/css">
+			/* 代码整理：懒人之家 www.lanrenzhijia.com */
+			.example_1 select,.example_2 select {width: 200px;}
+			.example_1 label,.example_2 label {cursor: pointer;}
+			.b-custom-select {
+				position:relative;
+				display: inline-block;
+				height: 23px;
+				background: #fff;
+				border-width: 1px;
+				border-style: solid;
+				border-top-color: #c3c3c3;
+				border-bottom-color: #838383;
+				border-left-color: #a2a2a2;
+				border-right-color: #a2a2a2;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+				-moz-box-shadow: inset 0 1px 3px 1px #f2f2f4;
+				-webkit-box-shadow: inset 0 1px 3px 1px #f2f2f4;
+				box-shadow: inset 0 1px 3px 1px #f2f2f4;
+				font-size: 13px;
+				vertical-align: middle;
+				text-align: left;
+			}
+			.b-custom-select_disabled {
+				color: #bcbcbc;
+				background: #f9f9f9;
+			}
+			.b-custom-select_focus {
+			}
+			.b-custom-select_expanded {
+				z-index: 199;
+				height: 24px;
+				border-bottom: none;
+				-webkit-border-radius: 3px 3px 0 0;
+				-moz-border-radius: 3px 3px 0 0;
+				border-radius: 3px 3px 0 0;
+			}
+			.lte7 .b-custom-select {
+				display: inline;
+				zoom:1;
+			}
+			.b-custom-select__title {
+				cursor: pointer;
+				overflow: hidden;
+			}
+			.b-custom-select__title__text {
+				margin: 5px 30px 3px 10px;
+				font-size: 12px;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			.b-custom-select__title__icon {
+				position: absolute;
+				top:0px;
+				right: 0px;
+				display: block;
+				width: 22px;
+				height: 23px;
+				border-left: 1px solid #d8d8d8;
+				-moz-border-radius: 0 3px 3px 0;
+				-webkit-border-radius: 0 3px 3px 0;
+				border-radius: 0 3px 3px 0;
+				background: #fff;
+			}
+			.b-custom-select__title__icon:after {
+				content: "";
+				position:absolute;
+				top:10px;
+				right:7px;
+				border-top: 5px solid #666;
+				border-left:5px solid transparent;
+				border-right:5px solid transparent;
+			}
+			.b-custom-select_expanded .b-custom-select__title__icon {
+			}
+			.b-custom-select_disabled .b-custom-select__title__icon {
+				background: #f9f9f9;
+			}
+			.b-custom-select__title__input {
+				height: 20px;
+				padding: 2px 9px;
+				border: none;
+				background: none;
+				outline: 0;
+				font-family: "PTSansRegular";
+				font-size: 12px;
+			}
+			.b-custom-select__dropdown {
+				background: #fff;
+				border: 1px solid #cccccc;
+				border-width: 1px;
+				border-style: solid;
+				border-top-color: #c3c3c3;
+				border-bottom-color: #838383;
+				border-left-color: #a2a2a2;
+				border-right-color: #a2a2a2;
+				-moz-border-radius: 0 0 3px 3px;
+				-webkit--moz-border-radius: 0 0 3px 3px;
+				border-radius: 0 0 3px 3px;
+				overflow: hidden;
+			}
+			.b-custom-select__list {
+				padding: 5px 5px;
+			}
+			.b-custom-select__group {
+				padding: 4px;
+				white-space: nowrap;
+				font-family: "PTSansRegular";
+				font-size: 12px;
+				font-weight: bold;
+			}
+			.b-custom-select__item {
+				position: relative;
+				display: block;
+				height: 15px;
+				padding: 4px 5px;
+				overflow: hidden;
+				cursor: pointer;
+				white-space: nowrap;
+				border-bottom: 1px dotted #cecece;
+				font-family: "PTSansRegular";
+				font-size: 12px;
+			}
+			.b-custom-select_multiple .b-custom-select__item {
+			}
+			.b-custom-select__item:hover, .b-custom-select__item.selected {
+				background: #f9f9f9;
+			}
+			.b-custom-select__item.disabled {
+				color: #bcbcbc;
+			}
+			.b-custom-select_multiple .b-custom-select__item:hover, .b-custom-select_multiple .b-custom-select__item.selected {
+				background: none;
+			}
+			.b-custom-select_multiple .b-custom-select__item.selected:before {
+				background-position: -46px 0;
+			}
+			.b-custom-select__wrap-scrollbar {
+				position: absolute;
+				top:0;
+				bottom:0;
+				right:0;
+				width:22px;
+				border-left: 1px solid #ececec;
+			}
+			 .b-custom-select__dropdown__inner::-webkit-scrollbar {
+			width: 0;
+			}
+			.b-custom-select__wrap-scrollbar:after {
+				content: "";
+				position: absolute;
+				top: 3px;
+				bottom: 3px;
+				left: 9px;
+				width: 3px;
+				border-left: 1px solid #b1b1b1;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				border-radius: 3px;
+				background: #cccccc;
+			}
+			.b-custom-select__scrollbar {
+				position: absolute;
+				z-index: 1;
+				left:0;
+				right:0;
+				margin-left: auto;
+				margin-right: auto;
+				width: 10px;
+				height: 40px !important;
+				background: #666;
+				border-radius: 4px;
+				cursor:pointer;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<center>
+			<div class="example_1">
+				<p></p>
+				<label for="demo-select_1">Example 1:</label>
+				<select name="" id="demo-select_1">
+					<optgroup label="项目一">
+						<option value="1" data-modifier="mod">item 1</option>
+						<option value="2">Item 2</option>
+						<option value="3" disabled>Item 3</option>
+						<option value="4">Item 4</option>
+						<option value="5">Item 5</option>
+						<option value="6" disabled>Item 6</option>
+						<option value="7">Item 7</option>
+						<option value="8">Item 8</option>
+						<option value="9">Item 9</option>
+						<option value="10">Item 10</option>
+					</optgroup>
+					<optgroup label="项目二">
+						<option value="11">Item</option>
+						<option value="12">Item</option>
+						<option value="13">item</option>
+						<option value="14">Item</option>
+						<option value="15" disabled>Item</option>
+						<option value="16">Item</option>
+						<option value="17">Item</option>
+						<option value="18">Item</option>
+						<option value="19">Item</option>
+						<option value="20">Item</option>
+					</optgroup>
+				</select>
+				<button id="button_1">Set disable</button>
+			</div>
+			<div class="example_2">
+				<p></p>
+				<label for="demo-select_2">Example 2:</label>
+				<select name="" id="demo-select_2">
+					<option value="1">American</option>
+					<option value="2">Bangladesh</option>
+					<option value="3">China</option>
+					<option value="4">Denmark</option>
+					<option value="5">ESTONIA</option>
+					<option value="6">France</option>
+					<option value="7">Georgia</option>
+					<option value="8">Hong Kong</option>
+					<option value="9">Indonesia</option>
+					<option value="10">Japan</option>
+				</select>
+				<button id="button_2_add">Add some items</button>
+				<button id="button_2_del">Delete some items</button>
+			</div>
+		</center>
+		<script src="js/jquery-2.2.2.min.js"></script>
+		<script src="js/jquery.custom-select.js"></script>
+		<script>
+			$(function() {
+				$('select').not('#demo-select_2').CustomSelect();
+				$('#demo-select_2').CustomSelect({
+					visRows: 10,
+					search: true,
+					modifier: 'mod'
+				});
+				$('#button_1').on('click', function(event) {
+					event.preventDefault();
+					var $btn = $(this);
+					if($('#demo-select_1').is(':disabled')) {
+						$btn.text('Set disable');
+						$('#demo-select_1').removeAttr('disabled').trigger('update');
+					} else {
+						$btn.text('Set enable');
+						$('#demo-select_1').attr({
+							'disabled': 'disabled'
+						}).trigger('update');
+					}
+				});
+				$('#button_2_add').on('click', function(event) {
+					event.preventDefault();
+					$('#demo-select_2').append($('#demo-select_2 option:odd').clone());
+					$('#demo-select_2').trigger('update');
+				});
+				$('#button_2_del').on('click', function(event) {
+					event.preventDefault();
+					$('#demo-select_2 option:even').remove();
+					$('#demo-select_2').trigger('update');
+				});
+			});
+		</script>
+		<!-- 代码部分end -->
+	</body>
+
+</html>
